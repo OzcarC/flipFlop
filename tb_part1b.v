@@ -20,16 +20,10 @@ module tb_flipFlop;
         begin
             d = 0;
             reset = 1;
-            for(j=0;j<4;j=j+1)begin
+            for(j=0;j<12;j=j+1)begin
                 #25 d = ~ d;
-            end
-            reset = 0;
-            for(j=0;j<4;j=j+1)begin
-                #25 d = ~ d;
-            end
-            reset = 1;
-            for(j=0;j<4;j=j+1)begin
-                #25 d = ~ d;
+                if(j%4==0&&j>0)
+                    reset = ~ reset;
             end
             
         end
