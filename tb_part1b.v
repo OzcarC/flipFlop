@@ -3,30 +3,35 @@
 module tb_flipFlop;
     wire q,q_bar;
     reg d, clock,reset;
-    integer i;
+    integer i,j;
 
-    flipFlop dat(.d(d),.clock(clock),.q(q),.q_bar(q_bar));
+    flipFlop dat(.d(d),.clock(clock),.q(q),.q_bar(q_bar),.reset(reset));
     initial
         begin
             $dumpfile("wave_flipFlopRest.vcd");
             $dumpvars(0,tb_flipFlop);
             clock = 0;
                 for(i=0; i<30;i=i+1) begin
-                    #10clock = ~clock;
+                    #10 clock = ~clock;
                 end
+            reset = 1;
         end
     initial 
         begin
+            d = 0;
+            reset = 1;
+            for(j=0;j<4;j=j+1)begin
+                #25 d = ~ d;
+            end
             reset = 0;
-            d = 0;
-            #55 reset = 0;
-            d = 1;
-            #55 reset = 0;
-
-            d = 0;
-            #55 reset = 1;
-            d = 1;
-            #55 reset = 1;
+            for(j=0;j<4;j=j+1)begin
+                #25 d = ~ d;
+            end
+            reset = 1;
+            for(j=0;j<4;j=j+1)begin
+                #25 d = ~ d;
+            end
+            
         end
     always @ (d)
         begin

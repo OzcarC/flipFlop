@@ -7,13 +7,13 @@ module flipFlop(
 
     always @ (posedge clock or negedge reset)
         begin
-        if(reset==0) begin
-            q=0;
-            q_bar = 1;
+        if(reset == 0) begin
+            q<=0;
+            q_bar<= 1;
         end
         else begin
-            q=d;
-            q_bar = ~d;
+            q<=d;
+            q_bar <= ~d;
         end
     end
 endmodule
