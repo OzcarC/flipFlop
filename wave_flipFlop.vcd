@@ -1,5 +1,5 @@
 $date
-	Thu Apr 18 22:39:26 2024
+	Thu Apr 18 22:55:33 2024
 $end
 $version
 	Icarus Verilog
@@ -29,7 +29,6 @@ $var wire 1 . sD_bar $end
 $var wire 1 / sQ $end
 $var wire 1 0 sQ_bar $end
 $var wire 1 1 sTop $end
-$var wire 1 2 s_q $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
@@ -38,7 +37,6 @@ $dumpall
 $end
 #0
 $dumpvars
-z2
 11
 x0
 x/
@@ -55,9 +53,10 @@ z-
 b0 $
 0#
 0"
-z!
+x!
 $end
 #10000
+0!
 0/
 10
 x(
@@ -128,6 +127,7 @@ z-
 0"
 #70000
 00
+1!
 x(
 1&
 1/
@@ -176,6 +176,7 @@ z-
 0"
 0#
 #110000
+0!
 0/
 x(
 1+
@@ -246,6 +247,7 @@ z-
 0"
 #170000
 00
+1!
 x(
 1&
 1/

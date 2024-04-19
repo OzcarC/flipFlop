@@ -20,6 +20,6 @@ module flipFlop(
     nand(sBot,sD_bar,clock);
     nand(sQ,sTop,sQ_bar);
     nand(sQ_bar,sBot,sQ);
-    buf(q,s_q);
+    buf(q,sQ);
 
 endmodule
