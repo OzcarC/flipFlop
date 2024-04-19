@@ -1,0 +1,104 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000020f50256fd0 .scope module, "tb_flipFlop" "tb_flipFlop" 2 3;
+ .timescale -9 -12;
+v0000020f50251730_0 .var "clock", 0 0;
+v0000020f50251690_0 .var "d", 0 0;
+v0000020f50251230_0 .var/i "i", 31 0;
+v0000020f502517d0_0 .net "q", 0 0, L_0000020f50253540;  1 drivers
+E_0000020f50247160 .event anyedge, v0000020f50251370_0;
+S_0000020f50257160 .scope module, "dat" "flipFlop" 2 8, 3 3 0, S_0000020f50256fd0;
+ .timescale -11 -12;
+    .port_info 0 /INPUT 1 "d";
+    .port_info 1 /INPUT 1 "clock";
+    .port_info 2 /OUTPUT 1 "q";
+L_0000020f502453b0 .functor NOT 1, v0000020f50251730_0, C4<0>, C4<0>, C4<0>;
+L_0000020f50244f50 .functor NOT 1, L_0000020f50245500, C4<0>, C4<0>, C4<0>;
+L_0000020f50245500 .functor NOTIF1 1, v0000020f50251690_0, L_0000020f502453b0, C4<0>, C4<0>;
+L_0000020f50244e00 .functor NAND 1, L_0000020f50245500, L_0000020f502453b0, C4<1>, C4<1>;
+L_0000020f50244fc0 .functor NAND 1, L_0000020f50244f50, L_0000020f502453b0, C4<1>, C4<1>;
+L_0000020f50245030 .functor NAND 1, L_0000020f50244e00, L_0000020f50245420, C4<1>, C4<1>;
+L_0000020f50245420 .functor NAND 1, L_0000020f50244fc0, L_0000020f50245030, C4<1>, C4<1>;
+L_0000020f50245490 .functor NOT 1, L_0000020f502450a0, C4<0>, C4<0>, C4<0>;
+L_0000020f502450a0 .functor NOTIF1 1, L_0000020f50245030, v0000020f50251730_0, C4<0>, C4<0>;
+L_0000020f50245180 .functor NAND 1, L_0000020f502450a0, v0000020f50251730_0, C4<1>, C4<1>;
+L_0000020f502451f0 .functor NAND 1, L_0000020f50245490, v0000020f50251730_0, C4<1>, C4<1>;
+L_0000020f50245260 .functor NAND 1, L_0000020f50245180, L_0000020f50245340, C4<1>, C4<1>;
+L_0000020f50245340 .functor NAND 1, L_0000020f502451f0, L_0000020f50245260, C4<1>, C4<1>;
+o0000020f5025b2d8 .functor BUFZ 1, C4<z>; HiZ drive
+L_0000020f50253540 .functor BUF 1, o0000020f5025b2d8, C4<0>, C4<0>, C4<0>;
+v0000020f50248e60_0 .net "clock", 0 0, v0000020f50251730_0;  1 drivers
+v0000020f50316d40_0 .net "clock_bar", 0 0, L_0000020f502453b0;  1 drivers
+v0000020f50251370_0 .net "d", 0 0, v0000020f50251690_0;  1 drivers
+v0000020f50251af0_0 .net "mBot", 0 0, L_0000020f50244fc0;  1 drivers
+v0000020f50252090_0 .net "mD", 0 0, L_0000020f50245500;  1 drivers
+v0000020f50251550_0 .net "mD_bar", 0 0, L_0000020f50244f50;  1 drivers
+v0000020f502514b0_0 .net "mQ", 0 0, L_0000020f50245030;  1 drivers
+v0000020f50251cd0_0 .net "mQ_bar", 0 0, L_0000020f50245420;  1 drivers
+v0000020f50251b90_0 .net "mTop", 0 0, L_0000020f50244e00;  1 drivers
+v0000020f50251d70_0 .net "q", 0 0, L_0000020f50253540;  alias, 1 drivers
+v0000020f50251ff0_0 .net "sBot", 0 0, L_0000020f502451f0;  1 drivers
+v0000020f50251410_0 .net "sD", 0 0, L_0000020f502450a0;  1 drivers
+v0000020f50251910_0 .net "sD_bar", 0 0, L_0000020f50245490;  1 drivers
+v0000020f50251e10_0 .net "sQ", 0 0, L_0000020f50245260;  1 drivers
+v0000020f50251eb0_0 .net "sQ_bar", 0 0, L_0000020f50245340;  1 drivers
+v0000020f502512d0_0 .net "sTop", 0 0, L_0000020f50245180;  1 drivers
+v0000020f502515f0_0 .net "s_q", 0 0, o0000020f5025b2d8;  0 drivers
+    .scope S_0000020f50256fd0;
+T_0 ;
+    %vpi_call 2 11 "$dumpfile", "wave_flipFlop.vcd" {0 0 0};
+    %vpi_call 2 12 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000020f50256fd0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020f50251730_0, 0, 1;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0000020f50251230_0, 0, 32;
+T_0.0 ;
+    %load/vec4 v0000020f50251230_0;
+    %cmpi/s 30, 0, 32;
+    %jmp/0xz T_0.1, 5;
+    %delay 10000, 0;
+    %load/vec4 v0000020f50251730_0;
+    %inv;
+    %store/vec4 v0000020f50251730_0, 0, 1;
+    %load/vec4 v0000020f50251230_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0000020f50251230_0, 0, 32;
+    %jmp T_0.0;
+T_0.1 ;
+    %end;
+    .thread T_0;
+    .scope S_0000020f50256fd0;
+T_1 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020f50251690_0, 0, 1;
+    %delay 50000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020f50251690_0, 0, 1;
+    %delay 50000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020f50251690_0, 0, 1;
+    %delay 50000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020f50251690_0, 0, 1;
+    %delay 50000, 0;
+    %end;
+    .thread T_1;
+    .scope S_0000020f50256fd0;
+T_2 ;
+    %wait E_0000020f50247160;
+    %vpi_call 2 31 "$display", "D = %d, clock = %d", v0000020f50251690_0, v0000020f50251730_0 {0 0 0};
+    %jmp T_2;
+    .thread T_2, $push;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    ".\tb_part1a.v";
+    ".\part1a.v";

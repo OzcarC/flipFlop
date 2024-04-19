@@ -1,11 +1,11 @@
 `timescale 1ns/1ps
 
 module tb_flipFlop;
-    wire q,q_bar;
+    wire q;
     reg d, clock;
     integer i;
 
-    flipFlop dat(.d(d),.clock(clock),.q(q),.q_bar(q_bar));
+    flipFlop dat(.d(d),.clock(clock),.q(q));
     initial
         begin
             $dumpfile("wave_flipFlop.vcd");
