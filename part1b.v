@@ -1,4 +1,4 @@
-`timescale 10ps/1ps
+`timescale 1ns/1ps
 
 module flipFlop(
     input d,clock,reset,
